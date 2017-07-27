@@ -118,3 +118,39 @@ Human.prototype = Object.create(Animal.prototype,{
 }) //继承共有属性
 var h =new Human('人类','chiang')
 console.dir(h)
+
+/* 语法糖：Class&Extends */
+
+class Bio{
+    constructor(){}
+    birth(){ 
+    console.log('我出生了')
+    }
+    die(){
+    console.log('我死亡了')
+    }
+}
+class Animal extends Bio{
+    constructor(species){
+        super() //父类的构造函数 Bio的constructor
+        this.body = '我的身体'
+        this.species = species  
+    }
+    walk(){
+        console.log('我能走路')
+    }
+}
+class Human extends Animal{
+    constructor(species,name){
+        super(species)
+        this.name=name
+    }
+    useTools(){
+    console.log(我会使用工具)
+    }
+    social(){
+    console.log('我会社交')
+    }
+}
+var h =new Human('人类','chiang')
+console.dir(h)
