@@ -43,6 +43,7 @@ createAndSet('hobby', 0)
 /* HTML初始化 */
 $('input[name="name"]').val(chiang.name)
 $('input[name="age"]').val(chiang.age)
+$('input[name="hobby"]').val(chiang.hobby)
 $('form').on('submit', function (e) {
     e.preventDefault()
 })
