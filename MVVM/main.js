@@ -4,24 +4,18 @@ var chiang = {
         name:'chiang'
     }
 }
-Object.defineProperties(chiang,'age',{
+for(let key in chiang._data){
+Object.defineProperties(chiang,key,{
     get:function(){
-            return chiang._data.age
+            return chiang._data[key]
         },
     set:function(xxx){
-            $('input[name="age"]').val(xxx)
-            chiang._data.age=xxx
+            $('input[name="'+key+'"]').val(xxx)     //修改HTML
+            chiang._data[key]=xxx
         }
 })
-Object.defineProperties(chiang,'name',{
-    get:function(){
-            return chiang._data.name
-        },
-    set:function(xxx){
-            $('input[name="name"]').val(xxx)
-            chiang._data.name=xxx
-        }
-})
+}
+
 /* HTML到内存的一个映射 */
 $('form').on('input','input[name]',function(e){
     let $input = e.currentTarget()
